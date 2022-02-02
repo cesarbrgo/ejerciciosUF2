@@ -1,0 +1,85 @@
+struct date{
+    int publicationday;
+    int publicationmonth;
+    int publicationyear;
+};
+
+
+struct llibre{
+	char titol[50];
+	char autor[50];
+	char editorial[50];
+    struct date datepublication;
+	int unitats;
+	char usuari[50];
+    int diesprestec;
+};
+
+int validate();
+void modifyData(struct llibre *, int);
+void printData(struct llibre *, int);
+
+//functions.c
+#include <stdio.h>
+//#include "functions.h"
+
+int validate(){
+    int num;
+    do{
+   	 printf("Quants llibres vols introduir?\n");
+   	 scanf("%d", &num);
+    }while(num<1);
+    return num;
+}
+
+void modifyData(struct llibre *lli,int size){ //punter a office
+    for(int i=0; i<size;i++){
+   	 printf("Introdueix el titol del llibre: \n");
+   	 scanf("%s",lli[i].titol);
+   	 printf("Introdueix l'autor del llibre: \n");
+   	 scanf("%s",lli[i].autor);
+   	 printf("Introdueix la editorial del llibre: \n");
+   	 scanf("%s",lli[i].editorial);
+   	 printf("Introdueix el dia de publicacio: \n");
+   	 scanf("%d",&lli[i].datepublication.publicationday);
+   	 printf("Introdueix el mes de publicacio: \n");
+   	 scanf("%d",&lli[i].datepublication.publicationmonth);
+   	 printf("Introdueix l'any de publicacio: \n");
+   	 scanf("%d",&lli[i].datepublication.publicationyear);
+     printf("Introdueix les unitats del llibre: \n");
+   	 scanf("%d",&lli[i].unitats);
+   	 printf("Introdueix l'usuari que te el llibre en prestec: \n");
+   	 scanf("%s",lli[i].usuari);
+   	 printf("Introdueix els dies de prestec que l'hi queden: \n");
+   	 scanf("%d",&lli[i].diesprestec);
+    }
+}
+
+void printData(struct llibre *lli, int size){
+    printf("------------------------------------------------\n");
+    for(int i=0; i<size; i++){
+    	printf("Aquestes són les dades del llibre: [%d]\n", i+1);
+    	printf("titol del llibre: %s\n", lli[i].titol);
+    	printf("l'autor: %s\n", lli[i].autor);
+    	printf("l'editorial: %s\n", lli[i].editorial);
+    	printf("la data es: %d / %d / %d\n", lli[i].datepublication.publicationday, lli[i].datepublication.publicationmonth, lli[i].datepublication.publicationyear);
+    	printf("Nombre d'unitats: %d\n", lli[i].unitats);
+    	printf("l'usuari es: %s\n", lli[i].usuari);
+    	printf("els dies de prestec que l'hi queden són: %d\n", lli[i].diesprestec);
+    	printf("------------------------------------------------\n");
+    }
+}
+
+//main.c
+//#include <stdio.h>
+//#include "functions.h"
+
+void main() {
+    int size;
+    size = validate();
+    struct llibre bcn[size];
+    modifyData(bcn, size);//per referència només l’array, no size
+    printData(bcn, size); //es passa per valor
+}
+
+
