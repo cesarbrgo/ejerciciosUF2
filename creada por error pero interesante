@@ -1,0 +1,24 @@
+
+#include <stdio.h>
+#define MSG "introdueix la dimensio de l'arrai (2 minim):"
+#define MSG2 "introdueix la posicio de l'arrai"
+
+int validar(char * msg, int comparador){
+    int num;
+    do{
+        printf("%s", msg);
+        scanf("%d",&num);
+    }while (num<comparador);
+    return num;
+}
+
+int main(){   
+    int size, comparador=2,i=0;
+    size=validar( MSG, comparador);
+    int arrai[size];
+    comparador=1;
+    do{
+        arrai[i]=validar(MSG2, comparador);
+        i=i+1;
+    }while(i<size);
+}
