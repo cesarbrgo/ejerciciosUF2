@@ -1,5 +1,10 @@
-#include <stdio.h>
+/******************************************************************************
 
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
 
 #include <stdio.h>
 #define MSG "introdueix la dimensió de l'array (2 minim): "
@@ -8,52 +13,54 @@
 int validar(char * msg, int min, int max){
     int num;
     if(max!=0){
-             do{
-                printf("%s", msg);
-                scanf("%d",&num);
-            }while (num<min || num>max);
+    	do{
+        	printf("%s", msg);
+        	scanf("%d", &num);
+    	}while (num<min|| num>max);
     }
-    else{
-            do{
-                printf("%s", msg);
-                scanf("%d",&num);
-            }while (num<min);
-    } 
-    return num;
+   else{
+    	do{
+    		printf("%s", msg);
+    		scanf("%d",&num);
+    	}while (num<min);
+	}
+  return num;
 }
-
 
 int ordenar(int * ordenacio, int size){
-    int i, j, auxiliar;
-    for (i=0; i<(size-1); i++){
-         for (j=i+1; j<(size); j++){
-            if(ordenacio[i]<ordenacio[j]){
-                auxiliar=ordenacio[j];
-                ordenacio[j]=ordenacio[i];
-                ordenacio[i]=auxiliar;
-                 ///printf("%d", ordenacio[i]);
-                 // printf("%d", ordenacio[j]);
-            }
-            
+   int i, j, auxiliar;
+   for (i=0; i<(size-1); i++){
+       for (j=i+1; j<(size); j++){
+        if(ordenacio[i]<ordenacio[j]){
+	                  auxiliar=ordenacio[j];
+	                  ordenacio[j]=ordenacio[i];
+	                  ordenacio[i]=auxiliar;
+                }
          }
-    }
-    
-     for (i=0; i<(size); i++){
-      printf("%d, ", ordenacio[i]);
-      i=i+1;
-    }
-    
+  }
+ 
+ for (i=0; i<(size); i++){
+     if(i==size-1){
+        printf("%d. ", ordenacio[i]);
+     }
+     else{
+        printf("%d, ", ordenacio[i]);
+     }
+
+ }
+ 
 }
 
-int main(){   
+int main(){ 
     int size, min=2,i=0, max=50;
     size=validar( MSG, min, max);
     int arrai[size];
-    min=1;
-    do{
-        max=0;
-        arrai[i]=validar(MSG2, min, max);
-        i=i+1;
-    }while(i<size);
-    ordenar(arrai, size);
+     min=1;
+   do{
+         max=0;
+         arrai[i]=validar(MSG2, min, max);
+         i=i+1;
+   }while(i<size);
+ ordenar(arrai, size);
 }
+
