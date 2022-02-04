@@ -34,8 +34,6 @@ void ordenar(int * ordenacio, int size){
                 auxiliar=ordenacio[j];
                 ordenacio[j]=ordenacio[i];
                 ordenacio[i]=auxiliar;
-                 ///printf("%d", ordenacio[i]);
-                 // printf("%d", ordenacio[j]);
             }
          }
     }
