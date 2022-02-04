@@ -1,0 +1,58 @@
+#El codi de l'Eric és el seguent:
+
+#include <stdio.h>
+#include "function.h"
+
+void main(){
+	int num, num2;
+	num = validate();
+	num2 = primer(num);
+	if (num2!=0){
+		printf("El numero és primer");
+	}
+	else{
+		printf("El número no és primer");
+	}
+}
+
+int validate(){
+	int num;
+	do{
+		printf("Escriu un nombre enter: ");
+		scanf("%d", &num);
+	}while (num==1 || num<=0);
+  #AQUEST WHILE PER VALIDAR ES MOLT ENREVESAT, JO EL FARIA WHILE(NUM<1)
+	return num;
+}
+
+
+int primer(int num){
+	int count=2, primer;
+	do{
+		primer = num%count;
+		count=count+1;
+	}while (num>count || primer!=0);
+	return primer;
+}
+
+
+#JO FARIA UNA PETITA MODIFICACIÓ DEL CODI QUE EL TRANSFORMARIA EN 
+void main(){
+	int num;
+	num = validate();
+	primer(num);
+}
+
+void primer(int num){
+	int count=2, primer;
+	do{
+		primer = num%count;
+		count=count+1;  
+	}while (num>count || primer!=0);
+  if(primer==0){
+  printf("El numero és primer");
+  }
+  else{
+  printf("El número no és primer");
+  }
+}
