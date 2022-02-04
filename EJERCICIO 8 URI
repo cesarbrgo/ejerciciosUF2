@@ -1,0 +1,49 @@
+#codigo oriol:
+
+#include <stdio.h>
+#include "function.h"
+
+void main(){
+    int numero=0, potencia=0;
+    
+    
+#QUINA UTILITAT TE INICIALITZAR LES VARIABLES A 0?
+
+
+    numero = natural();
+    potencia = natural();
+    elevar(numero,potencia);
+
+}
+
+#AQUI ESTA TOT CORRECTE
+int natural(){
+	int num;
+	do{
+		printf("Introduce un numero natural:");
+		scanf("%d", &num);
+	}while (num<1);
+	return num;
+}
+#PENSO QUE SERIA MÉS FACIL FER-HO:
+
+                                                    int exponenciar(int num1, int num2){
+                                                        int resultat=1, i=0;
+                                                        do{
+                                                            resultat=resultat*num1;
+                                                            i=i+1;
+                                                        }while(i!=num2);
+                                                        return resultat;
+                                                    }
+
+
+elevar(int numero, int potencia){
+	  int i=0;
+	  long resultado=numero;
+	  i = potencia;
+	  while(i >1){
+	        resultado = resultado * numero;
+	        i --;
+	    }
+	    printf("%d  elevado a %d és %ld", numero, potencia , resultado);
+}
